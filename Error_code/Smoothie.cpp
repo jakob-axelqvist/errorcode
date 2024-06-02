@@ -1,30 +1,30 @@
 #include "Smoothie.h"
 
 
-Smoothie::Smoothie(std::string* fruits)
+Smoothie::Smoothie(vector<string> fruits)
 {
 	ingredients = fruits;
 }
 
-int Smoothie::getCost()
+float Smoothie::getCost()
 {
 	float sum = 0;
-	for (int i = 0; i > ingredients->length(); i++) {
-		if (ingredients[i] == "Strawberries") {
+	for (int i = 0; i < ingredients.size(); i++) {
+		if (ingredients[i] == "Strawberry") {
 			sum += 1.50;
 		}
 		else if (ingredients[i] == "Banana") {
-			sum += 10.50;
+			sum += 0.50;
 		}
 		else if (ingredients[i] == "Mango") {
 			sum += 2.50;
 		}
-		else if (ingredients[i] == "Blueberries"
-			|| ingredients[i] == "Raspberries") {
+		else if (ingredients[i] == "Blueberry"
+			|| ingredients[i] == "Raspberry") {
 			sum += 1.00;
 		}
 		else if (ingredients[i] == "Apple") {
-			sum = 1.75;
+			sum += 1.75;
 		}
 		else if (ingredients[i] == "Pineapple") {
 			sum += 3.50;
@@ -39,25 +39,28 @@ int Smoothie::getCost()
 
 float Smoothie::getPrice()
 {
-	float value = (int)(getCost() + (getCost() * 1.5)*100);
-	return (float)value/100;
+	float value = getCost() + getCost() * 1.5f;
+	return value;
 }
 
 
 // TODO: Sort 
-std::string getName()
+std::string Smoothie::getName()
 {
-	std::string s = "",s2;
+	std::string s = "";
 
 
-	for (int i = 1; i < ingredients->length(); i++) {
-		if (ingredients[i] == "Strawberries") {
+	for (int i = 0; i < ingredients.size(); i++) {
+
+		// s += ingredients[i] + " "
+
+		if (ingredients[i] == "Strawberry") {
 			s += "Strawberry ";
 		}
-		else if (ingredients[i] == "Blueberries") {
+		else if (ingredients[i] == "Blueberry") {
 			s += "Blueberry ";
 		}
-		else if (ingredients[i] == "Raspberries") {
+		else if (ingredients[i] == "Raspberry") {
 			s += "Raspberry ";
 		}
 		else if (ingredients[i] == "Banana"
@@ -71,11 +74,8 @@ std::string getName()
 		}
 	}
 
-
-	
-
-	if (ingredients->length() > 1) {
-		s = "Fusion";
+	if (ingredients.size() > 1) {
+		s += "Fusion";
 	}
 	else {
 		s += "Smoothie";

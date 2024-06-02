@@ -1,5 +1,5 @@
 #include "Smoothie.h"
-
+#include <iostream>
 using namespace std;
 
 /*
@@ -14,12 +14,13 @@ Pineapple		$3.50
 */
 
 int main() {
-	Smoothie s1(new string[1] {"Banana"});
+	Smoothie s1({"Banana"});
 	cout << "$" << s1.getCost() << "\n";
-	cout << "$" << s1.getPrice() << "\n"
+	cout << "$" << s1.getPrice() << "\n";
 	cout << s1.getName() << "\n";
 	cout << endl;
-	Smoothie s2(new string[3]{ "Raspberries", "Strawberries", "Blueberries" });
+
+	Smoothie s2({ "Raspberry", "Strawberry", "Blueberry" });
 	cout << "$" << s2.getCost() << "\n";
 	cout << "$" << s2.getPrice() << "\n";
 	cout << s2.getName() << "\n";
