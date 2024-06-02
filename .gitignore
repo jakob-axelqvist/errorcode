@@ -1,3 +1,6 @@
+# Debug files
+Error_code/x64/
+
 # User-specific files
 *.rsuser
 *.suo
